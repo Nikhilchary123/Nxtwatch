@@ -31,7 +31,9 @@ class Home extends Component {
   state = {dataArray: [], isLoading: true, status: '', searchIp: ''}
 
   componentDidMount() {
-    this.getVideos()
+    const {searchIp} = this.state
+    console.log('getvideos')
+    this.getVideos(searchIp)
   }
 
   getVideos = async searchVal => {
@@ -47,7 +49,9 @@ class Home extends Component {
       const response = await fetch(url, options)
       if (response.ok) {
         const data = await response.json()
-        await this.setState({dataArray: data.videos, status: true})
+        console.log(data)
+
+        this.setState({dataArray: data.videos, status: true})
       }
     } catch {
       this.setState({status: false})

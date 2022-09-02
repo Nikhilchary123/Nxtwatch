@@ -79,14 +79,22 @@ class Header extends Component {
                 cursor="pointer"
               />
               <HeaderContentsSmallContainer>
-                <ButtonElSmall onClick={onChangeTheme} color={`${color}`}>
+                <ButtonElSmall
+                  onClick={onChangeTheme}
+                  color={`${color}`}
+                  data-testid="theme"
+                >
                   {activeTheme === 'light' ? (
                     <BsMoon size={25} />
                   ) : (
                     <BsBrightnessHigh size={25} />
                   )}
                 </ButtonElSmall>
-                <ButtonElSmall color={`${color}`} onClick={this.showHeader}>
+                <ButtonElSmall
+                  color={`${color}`}
+                  data-testid="theme"
+                  onClick={this.showHeader}
+                >
                   <GiHamburgerMenu size={25} />
                 </ButtonElSmall>
                 <ButtonElSmall color={`${color}`} onClick={this.logOut}>
@@ -131,6 +139,7 @@ class Header extends Component {
                   border="none"
                   onClick={onChangeTheme}
                   color={color}
+                  data-testid="theme"
                 >
                   {activeTheme === 'light' ? (
                     <BsMoon size={25} />
@@ -147,6 +156,7 @@ class Header extends Component {
                   color={activeTheme === 'light' ? '#3b82f6' : '#ffffff'}
                   padding="5px 15px"
                   onClick={this.logOut}
+                  data-testid="theme"
                 >
                   Logout
                 </ButtonElLarge>

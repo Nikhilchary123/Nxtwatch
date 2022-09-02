@@ -44,11 +44,9 @@ class Login extends Component {
     const {history} = this.props
     Cookies.set('jwt_token', jwtToken, {
       expires: 30,
-      path: '/',
     })
 
     history.replace('/')
-    console.log('Login Success')
   }
 
   onSubmitFailure = errorMsg => {
@@ -95,21 +93,23 @@ class Login extends Component {
           />
           <LoginFormContainer onSubmit={this.formSubmit}>
             <LoginDivContainer>
-              <LabelEl>USERNAME</LabelEl>
+              <LabelEl htmlFor="username">USERNAME</LabelEl>
               <InputEl
                 type="text"
                 placeholder="Username"
                 value={username}
                 onChange={this.onChangeUsername}
+                id="username"
               />
             </LoginDivContainer>
             <LoginDivContainer>
-              <LabelEl>PASSWORD</LabelEl>
+              <LabelEl htmlFor="password">PASSWORD</LabelEl>
               <InputEl
                 type={visibility ? 'text' : 'password'}
                 placeholder="Password"
                 value={password}
                 onChange={this.onChangePassword}
+                id="password"
               />
             </LoginDivContainer>
             <LoginDivContainer direction="row">
